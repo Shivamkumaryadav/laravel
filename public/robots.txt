@@ -1,0 +1,184 @@
+User-agent: *
+Disallow:
+
+ <form action="{{ BASE_URL }}store" method="POST">
+        @csrf
+
+        
+    </form><div class= "form-group">
+            <div class= "row m-5 form-group">
+                
+                <div class= "col-sm-3"> </div>
+                <div class= "col-sm-6">
+                    <h3 class= "m-5"> <b>Add New Entry </b></h3>
+                    <div class="form-element{{ $errors->has('first_name') ? ' error' : '' }}">
+                        <label>First Name </label>
+                        <input type= "text" name= "first_name" class= "form-control" value= "{{old('first_name')}}">
+                        <span>@error('first_name') {{$message}} @enderror</span>
+                    </div>
+
+                    <div class= "form-element{{ $errors->has('last_name') ? ' error' : '' }}">
+                        <label>Last Name </label>
+                        <input type= "text" name= "last_name" class= " form-control" value= "{{old('last_name')}}">
+                        <span> @error('last_name') {{$message}} @enderror</span>
+                    </div>
+                    
+                    <div class= "form-element{{ $errors->has('title') ? ' error' : '' }}">
+                        <label>Title </label>
+                        <input type= "text" name= "title" class= " form-control" value= "{{old('title')}}"> 
+                        <span class= "form-field"> @error('title') {{$message}} @enderror</span>
+                    </div>
+                    
+                    <div class= "form-element{{ $errors->has('business_name') ? ' error' : '' }} ">
+                        <label> Business Name </label>
+                        <input type= "text" name= "business_name" class= " form-control" value= "{{old('business_name')}}">
+                        <span> @error('business_name') {{$message}} @enderror</span> 
+                    </div>
+                    
+                    <div class= "form-element{{ $errors->has('type_of_operation') ? ' error' : '' }}">
+                        <label>Type of Operation </label>
+                        <input type= "text" name= "type_of_operation" class= " form-control" value= "{{old('type_of_operation')}}"> 
+                        <span> @error('type_of_operation') {{$message}} @enderror </span>
+                    </div>
+                    
+                    <div class= "form-element{{ $errors->has('distributor_name') ? ' error' : '' }}">
+                        <label> Distributor Name </label> 
+                        <input type="text" name= "distributor_name" class= " form-control" value= "{{old('distributor_name')}}">
+                        <span>@error('distributor_name') {{$message}} @enderror</span>
+                    </div>
+                    
+                    <div class= "form-element{{ $errors->has('email') ? ' error' : '' }}">
+                        <label> Email </label>
+                        <input type= "text" name= "email" class= " form-control" value= "{{old('email')}}"> 
+                        <span> @error('email') {{$message}} @enderror </span>
+                    </div>
+                    
+                    <div class= "form-element{{ $errors->has('phone_number') ? ' error' : ' ' }}">
+                        <label> Phone Number </label>
+                        <input type= "text" name= "phone_number" class= " form-control" value= "{{old('phone_number')}}" maxlength="10"> 
+                        <span> @error('phone_number') {{$message}} @enderror </span>
+                    </div>
+                    <label class= "terms"> Terms & Conditions </label>
+                    <div class="mb-3 form-check form-element{{ $errors->has('terms_and_conditions') ? ' error' : '' }}">
+                        <input type="checkbox" class="form-check-input" name="terms_and_conditions" >
+                        <label class="form-check-label" for="exampleCheck1"> I agree to the official contest rules.</label> <br>
+                        <span> @error('terms_and_conditions') {{$message}} @enderror </span>
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input"  name= "optin" value="1">
+                        <label class="form-check-label" for="exampleCheck1"> Yes,I would like to recieve future communications via emails .</label>
+                      </div>
+                      <button type="submit" class="btn btn-success button"><b>Submit Entry</b></button>
+                        
+                </div>
+                <div class= "col-sm-3"> </div> 
+            </div> 
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+    <template>
+    <form @submit.prevent= "submit()">
+            <div class= "form-group">
+                <div class= "row m-5 form-group">
+                    
+                    <div class= "col-sm-3"> </div>
+                    <div class= "col-sm-6">
+                        <h3 class= "m-5"> <b>Add New Entry </b></h3>
+                        <div>
+                            <label>First Name </label>
+                            <input type= "text" name= "first_name" class= "form-control" v-model="entry.first_name" >
+                        </div>
+
+                        <div>
+                            <label>Last Name </label>
+                            <input type= "text" name= "last_name" class= " form-control" v-model="entry.last_name">
+                        </div>
+                        
+                        <div>
+                            <label>Title </label>
+                            <input type= "text" name= "title" class= " form-control" v-model="entry.title"> 
+                        </div>
+                        
+                        <div>
+                            <label> Business Name </label>
+                            <input type= "text" name= "business_name" class= " form-control" v-model="entry.business_name">
+                        </div>
+                        
+                        <div>
+                            <label>Type of Operation </label>
+                            <input type= "text" name= "type_of_operation" class= " form-control" v-model="entry.type_of_operation" > 
+                        </div>
+                        
+                        <div>
+                            <label> Distributor Name </label> 
+                            <input type="text" name= "distributor_name" class= " form-control" v-model="entry.distributor_name">
+                        </div>
+                        
+                        <div>
+                            <label> Email </label>
+                            <input type= "text" name= "email" class= " form-control" v-model="entry.email"> 
+                        </div>
+                        
+                        <div>
+                            <label> Phone Number </label>
+                            <input type= "text" name= "phone_number" class= " form-control" v-model="entry.phone_number"> 
+                        </div>
+                        <label class= "terms"> Terms & Conditions </label>
+                        <div>
+                            <input type="checkbox" class="form-check-input" name="terms_and_conditions" value="1" v-model="entry.terms_and_conditions" >
+                            <label class="form-check-label" for="exampleCheck1"> I agree to the official contest rules.</label> <br>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input"  name= "optin" value="1" v-model="entry.optin">
+                            <label class="form-check-label" for="exampleCheck1"> Yes,I would like to recieve future communications via emails .</label>
+                        </div>
+                        <button  type="submit" class="btn btn-success button"><b>Submit Entry</b></button>
+                            
+                    </div>
+                    <div class= "col-sm-3"> </div> 
+                </div> 
+        </div>
+    </form>
+    </template>
+    <script>
+    export default {
+        name: 'EntryForm',
+        data() {
+            return {
+                    entry:{
+                            first_name:'',
+                            last_name: '',
+                            title: '',
+                            business_name: '',
+                            type_of_operation: '',
+                            distributor_name: '',
+                            email: '',
+                            phone_number: '',
+                            terms_and_conditions: 0,
+                            optin: ''
+                        }
+                    }
+        },
+        methods: {
+            submit(){
+            console.log('submit');
+            console.log(this.entry);
+            axios.post('/store', this.entry)
+                .then(response => element.innerHTML = response.data.id )
+                .catch(error => {
+                    element.parentElement.innerHTML = `Error: ${error.message}`;
+                    console.error('There was an error!', error);
+                });
+            }
+        }
+    }
+    </script>

@@ -1,0 +1,33 @@
+.form-field{
+    color:red;
+}
+.form-element {
+margin-bottom: 1rem;
+}
+
+.form-element.error input {
+    border: 2px solid red;
+    background-color: rgba(227,15,15,.13);
+    border-radius: 1em 1em 1em 1em;
+}
+.form-element.error span {
+    color: red;
+}
+
+.button:hover{
+    color: mediumseagreen;
+    background-color:whitesmoke;
+
+}
+.button{
+    border:2px solid;
+    border-radius: 1rem 1rem 1rem 1rem;
+}
+.terms{
+    padding-bottom:7px ;
+}
+
+h1{
+    color:rgb(11, 185, 89);
+    margin-top: 100px;
+}
